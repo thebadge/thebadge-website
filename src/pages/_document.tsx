@@ -1,7 +1,7 @@
 import createCache from '@emotion/cache';
 import { EmotionCache } from '@emotion/react';
 
-import { GA_MEASUREMENT_ID } from '@/src/constants';
+import { GA_MEASUREMENT_ID, GTM_ID } from '@/src/constants';
 import createEmotionServer from '@emotion/server/create-instance';
 import Document, {
   DocumentContext,
@@ -66,10 +66,34 @@ class MyDocument extends Document {
           `,
             }}
           />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','${GTM_ID}');`,
+            }}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `const googleAdUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+              try {
+               fetch(new Request(googleAdUrl)).catch(_ => dataLayer.push({'event':'AdBlocker'}));      // use the event name you created in Step 1 here
+              } catch (e) {
+                dataLayer.push({'event':'AdBlocker'});
+              } `,
+            }}
+          />
         </Head>
         <body>
           <Main />
           <NextScript />
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display: none; visibility: hidden;" />`,
+            }}
+          />
         </body>
       </Html>
     );

@@ -1,9 +1,17 @@
-import { Box, styled } from '@mui/material';
+import {Box, styled} from '@mui/material';
 import dynamic from 'next/dynamic';
 
-import { Paragraph } from '../components/Commons/Paragraph';
-import { SectionTitle } from '../components/Commons/SectionTitle';
-import { TheBadgeSubTitle } from '../components/Commons/Subtitle';
+import {Paragraph} from '../components/Commons/Paragraph';
+import {SectionTitle} from '../components/Commons/SectionTitle';
+import {TheBadgeSubTitle} from '../components/Commons/Subtitle';
+import {
+  BadgeCategories,
+  BadgePreview,
+  BadgeTypesSupported,
+  IconEmail,
+  IconMedium,
+  LogoTheBadge, LogoTheBadgeWithText
+} from "thebadge-ui-library";
 
 const BadgeSwipper = dynamic(() => import('../components/Commons/BadgeSwiper'));
 const HexagonalDecoration = dynamic(
@@ -80,6 +88,19 @@ export default function Home() {
         <TitleAndSwiperContainer>
           <Box sx={{ flex: 2 }}>
             <Box>
+              <LogoTheBadge></LogoTheBadge>
+              <LogoTheBadgeWithText></LogoTheBadgeWithText>
+              <IconEmail link={''} color={'pink'}></IconEmail>
+              <IconMedium link={''} color={'pink'}></IconMedium>
+              <BadgePreview size={"large"}
+                            badgeCategory={BadgeCategories.OFFCHAIN}
+                            badgeType={BadgeTypesSupported.CUSTOM}
+                            badgeUrl={''}
+                            title={''}
+                            subline={''}
+                            description={''}
+                            animationEffects={[]}
+              ></BadgePreview>
               <TheBadgeSubTitle as="h1">
                 Information certification <br /> & profile identity
               </TheBadgeSubTitle>

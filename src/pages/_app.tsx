@@ -9,6 +9,9 @@ import { LayoutContainer } from '../components/Layout/LayoutContainer';
 import { getTheme } from '../styles/theme';
 import { useGoogleAnalytics } from '@/src/hooks/useGoogleAnalytics';
 
+// TheBadge UI Library
+import 'node_modules/thebadge-ui-library/dist/index.css'
+
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createCache({
   key: 'css',

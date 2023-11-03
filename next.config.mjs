@@ -1,6 +1,8 @@
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import mdx from '@next/mdx'
 import remarkGfm from 'remark-gfm'
+import nextTranslate from 'next-translate-plugin'
+
 /**
  * Don't be scared of the generics here.
  * All they do is to give us autocompletion when using this.
@@ -24,7 +26,7 @@ const withMDX = mdx({
     },
 })
 
-export default withMDX(withBundleAnalyzerWrapper(
+export default nextTranslate(withMDX(withBundleAnalyzerWrapper(
   defineNextConfig({
     reactStrictMode: true,
     swcMinify: true,
@@ -35,5 +37,11 @@ export default withMDX(withBundleAnalyzerWrapper(
       unoptimized: true,
     },
     transpilePackages: ['@mui/material', '@thebadge/ui-library'],
+    webpack: (config, {isServer}) => {
+      if (isServer) {
+        //config.resolve.alias['@thebadge/ui-library'] = false;
+      }
+      return config;
+    }
   }),
-));
+)));

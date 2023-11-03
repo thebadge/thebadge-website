@@ -1,15 +1,15 @@
 import { useIsMobile } from '@/src/hooks/useIsMobile';
 import { Box, Stack, Typography } from '@mui/material';
-import { useTranslation } from 'next-export-i18n';
+import useTranslation from 'next-translate/useTranslation';
 import { colors, Stepper } from '@thebadge/ui-library';
 import StyledTypography from '../Commons/StyledFirstLetter';
 import WhatAreContainer from './WhatAreContainer';
 
 export default function WhatAreCreators() {
   const { t } = useTranslation();
-  const isMobile = useIsMobile();
+  //const isMobile = useIsMobile();
 
-  const steps = [0, 1, 2].map((stepNumber, i) => {
+  const steps = [0, 1, 2].map((_, i) => {
     return (
       <Stack key={i} sx={{ flex: 1 }}>
         <StyledTypography
@@ -72,7 +72,6 @@ export default function WhatAreCreators() {
       <Box>
         <Stepper
           color="pink"
-          minHeight={isMobile ? 380 : 320}
           glowTitle={true}
           border={true}
           backgroundColor="transparent"

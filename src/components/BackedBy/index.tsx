@@ -1,29 +1,9 @@
 import { CustomDivider } from '@/src/components/Commons/Divider';
-import { useIsMobile } from '@/src/hooks/useIsMobile';
-import { Box, styled, Typography } from '@mui/material';
-import { useTranslation } from 'next-export-i18n';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import useTranslation from 'next-translate/useTranslation';
 import { colors } from '@thebadge/ui-library';
-
-const ContainerBox = styled(Box)(({ theme }) => ({
-  alignItems: 'center',
-  justifyContent: 'center',
-  display: 'flex',
-  [theme.breakpoints.up('lg')]: {
-    flex: '0 1 17%',
-  },
-}));
-
-const BoxBackedBy = styled(Box)(({ theme }) => ({
-  marginTop: theme.spacing(12),
-}));
-
-const CustomOrgLink = styled('a')<{ backcolor?: string }>(
-  ({ theme, backcolor }) => ({
-    background: `${backcolor || 'transparent'}`,
-    padding: '12px 16px 0 16px',
-    borderRadius: '12px',
-  }),
-);
+import { BoxBackedBy, ContainerBox, CustomOrgLink } from './addons';
 
 type Organizations = {
   image: string;
@@ -81,7 +61,6 @@ const ORGS: Organizations[] = [
 ];
 
 const BackedBy = () => {
-  const isMobile = useIsMobile();
   const { t } = useTranslation();
 
   return (

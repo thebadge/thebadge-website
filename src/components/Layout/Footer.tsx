@@ -1,3 +1,4 @@
+'use client';
 import { colors, IconDiscord } from '@thebadge/ui-library';
 import EmailIcon from '@/src/components/Icons/Email';
 import GithubIcon from '@/src/components/Icons/Github';
@@ -10,10 +11,10 @@ import {
   MEDIUM_URL,
   TWITTER_URL,
 } from '@/src/constants';
-import { useSetionReferences } from '@/src/contexts/referencesContext';
+import { useSectionReferences } from '@/src/contexts/referencesContext';
 import { useIsMobile } from '@/src/hooks/useIsMobile';
 import { Box, Link, Stack, styled, Typography } from '@mui/material';
-import { useTranslation } from 'next-export-i18n';
+import useTranslation from 'next-translate/useTranslation';
 
 export const FooterContainer = styled(Box)(({ theme }) => ({
   position: 'relative',
@@ -40,7 +41,7 @@ export const LegalContainer = styled(Stack)(({ theme }) => ({
   color: '#FFF',
   '& a': {
     color: '#FFF',
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
@@ -49,8 +50,7 @@ export const LegalContainer = styled(Stack)(({ theme }) => ({
 }));
 
 const Footer = () => {
-  const isMobile = useIsMobile();
-  const { contactSection } = useSetionReferences();
+  const { contactSection } = useSectionReferences();
   const { t } = useTranslation();
 
   return (
@@ -74,7 +74,9 @@ const Footer = () => {
           ©{new Date().getFullYear()} {t('footer.copyright')}
         </Typography>
         <Box sx={{ columnGap: 2, display: 'flex' }}>
-          <Link href="/legal/privacy-policy" target="_blank">Privacy Policy</Link>
+          <Link href="/legal/privacy-policy" target="_blank">
+            Privacy Policy
+          </Link>
         </Box>
       </LegalContainer>
     </FooterContainer>

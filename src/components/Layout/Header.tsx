@@ -1,7 +1,8 @@
-import { useSetionReferences } from '@/src/contexts/referencesContext';
+'use client';
+import { useSectionReferences } from '@/src/contexts/referencesContext';
 import { ConstructionOutlined } from '@mui/icons-material';
 import { Box, styled } from '@mui/material';
-import { useTranslation } from 'next-export-i18n';
+import useTranslation from 'next-translate/useTranslation';
 import { RefObject } from 'react';
 import {
   gradients,
@@ -43,12 +44,15 @@ const Header = () => {
     teamSection,
     partnershipSection,
     contactSection,
-  } = useSetionReferences();
-  const { t } = useTranslation();
+  } = useSectionReferences();
+  const { t } = useTranslation('translations');
 
-  const scrollTo = (sectionRef: RefObject<HTMLDivElement> | null, adjustOffset?: boolean) => {
+  const scrollTo = (
+    sectionRef: RefObject<HTMLDivElement> | null,
+    adjustOffset?: boolean,
+  ) => {
     if (!sectionRef) return;
-    const sectionOffset = sectionRef.current?.offsetTop
+    const sectionOffset = sectionRef.current?.offsetTop;
     window.scrollTo({
       top: adjustOffset ? (sectionOffset || 0) + 75 : sectionOffset,
       behavior: 'smooth',

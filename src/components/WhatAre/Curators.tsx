@@ -1,13 +1,13 @@
 import { useIsMobile } from '@/src/hooks/useIsMobile';
 import { Box, Stack, Typography } from '@mui/material';
-import { useTranslation } from 'next-export-i18n';
+import useTranslation from 'next-translate/useTranslation';
 import { colors, Stepper } from '@thebadge/ui-library';
 import StyledTypography from '../Commons/StyledFirstLetter';
 import WhatAreContainer from './WhatAreContainer';
 
 export default function WhatAreCurators() {
   const { t } = useTranslation();
-  const isMobile = useIsMobile();
+  //const isMobile = useIsMobile();
 
   const steps = [0, 1, 2, 3].map((stepNumber, i) => {
     return (
@@ -72,7 +72,6 @@ export default function WhatAreCurators() {
       <Box>
         <Stepper
           color="green"
-          minHeight={isMobile ? 400 : 320}
           glowTitle={true}
           border={true}
           backgroundColor="transparent"

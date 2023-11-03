@@ -1,12 +1,11 @@
+'use client';
 import { Box, styled } from '@mui/material';
-import dynamic from 'next/dynamic';
 
 import React from 'react';
 import Headroom from 'react-headroom';
 import { BackgroundGradient } from './BackgroundGradient';
+import Footer from './Footer';
 import Header from './Header';
-
-const Footer = dynamic(() => import('./Footer'));
 
 const Content = styled(Box)(({ theme }) => ({
   position: 'relative',
@@ -23,7 +22,7 @@ const Content = styled(Box)(({ theme }) => ({
 }));
 
 type LayoutContainerProps = {
-  children: React.ReactElement;
+  children: React.ReactNode;
 };
 
 export const LayoutContainer = ({ children }: LayoutContainerProps) => {
@@ -31,15 +30,18 @@ export const LayoutContainer = ({ children }: LayoutContainerProps) => {
     <div>
       <BackgroundGradient />
       <Content>
-        <Headroom
-          style={{
-            transition: 'all .5s cubic-bezier(0.83, 0, 0.17, 1)',
-          }}
-        >
-          <Header />
-        </Headroom>
-        {children}
-        <Footer />
+        <>
+          {/* @ts-ignore */}
+          <Headroom
+            style={{
+              transition: 'all .5s cubic-bezier(0.83, 0, 0.17, 1)',
+            }}
+          >
+            <Header />
+          </Headroom>
+          {children}
+          <Footer />
+        </>
       </Content>
     </div>
   );

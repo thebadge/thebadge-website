@@ -1,11 +1,6 @@
 import { colors, Roadmap, RoadmapItem } from '@thebadge/ui-library';
 import { CustomDivider } from '@/src/components/Commons/Divider';
-import { Box, styled, Typography } from '@mui/material';
-
-const BoxRoadmap = styled(Box)(({ theme }) => ({
-  marginTop: theme.spacing(12),
-  marginBottom: theme.spacing(10),
-}));
+import { Box, Typography } from '@mui/material';
 
 const roadmapElements: RoadmapItem[] = [
   {
@@ -20,8 +15,7 @@ const roadmapElements: RoadmapItem[] = [
     numberTitle: '02',
     quarterNumber: 'Q4 2023',
     quarterTitle: 'Beta Launch and Marketing Campaign',
-    quarterDescription:
-      'We will be releasing our platform.',
+    quarterDescription: 'We will be releasing our platform.',
   },
   {
     numberTitle: '03',
@@ -40,13 +34,19 @@ const roadmapElements: RoadmapItem[] = [
     numberTitle: '05',
     quarterNumber: '2024',
     quarterTitle: 'ZK badges integration',
-    quarterDescription: 'Zero Knowledge feature integration to preserve user\'s privacy.',
+    quarterDescription:
+      "Zero Knowledge feature integration to preserve user's privacy.",
   },
 ];
 
 const RoadmapSection = () => {
   return (
-    <BoxRoadmap>
+    <Box
+      sx={{
+        marginTop: 12,
+        marginBottom: 10,
+      }}
+    >
       <CustomDivider />
       <Typography
         variant="h2"
@@ -65,13 +65,13 @@ const RoadmapSection = () => {
           marginBottom: 4,
           marginTop: 4,
           '.roadmap__year:first-of-type': {
-            marginLeft: '-30px'
+            marginLeft: '-30px',
           },
         }}
       >
         <Roadmap elements={roadmapElements} />
       </Box>
-    </BoxRoadmap>
+    </Box>
   );
 };
 

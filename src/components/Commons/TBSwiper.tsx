@@ -1,12 +1,7 @@
-import {
-  useSizeLG,
-  useSizeMD,
-  useSizeSM,
-  useSizeXL,
-} from '@/src/hooks/useSize';
+'use client';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import {Box, keyframes, useMediaQuery, useTheme} from '@mui/material';
+import { Box, keyframes, useMediaQuery, useTheme } from '@mui/material';
 import { A11y, Navigation } from 'swiper';
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
 
@@ -51,11 +46,11 @@ export default function TBSwiper({
   });
 
   const theme = useTheme();
-  const xs = useMediaQuery(theme.breakpoints.down(560))
-  const sm = useMediaQuery(theme.breakpoints.down(790))
-  const md = useMediaQuery(theme.breakpoints.down(1024))
-  const lg = useMediaQuery(theme.breakpoints.down(1300))
-  const xl = useMediaQuery(theme.breakpoints.down(1680))
+  const xs = useMediaQuery(theme.breakpoints.down(560));
+  const sm = useMediaQuery(theme.breakpoints.down(790));
+  const md = useMediaQuery(theme.breakpoints.down(1024));
+  const lg = useMediaQuery(theme.breakpoints.down(1300));
+  const xl = useMediaQuery(theme.breakpoints.down(1680));
 
   const amountItems = () => {
     const maxItems = maxSlidesPerView || 4;
@@ -115,7 +110,16 @@ export default function TBSwiper({
       >
         {items.map((item, index) => (
           <SwiperSlide key={'swiper-slide-' + swiperId + '-' + index}>
-            <Box sx={{ scale: itemsScale || '1', justifyContent: 'center', display: 'flex' }}>{item}</Box>
+            <Box
+              sx={{
+                scale: itemsScale || '1',
+                justifyContent: 'center',
+                display: 'flex',
+              }}
+            >
+              {/* @ts-ignore */}
+              {item}
+            </Box>
           </SwiperSlide>
         ))}
       </Swiper>

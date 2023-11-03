@@ -1,22 +1,8 @@
-import { Box, styled, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'next-export-i18n';
+import { Box, Typography } from '@mui/material';
+import useTranslation from 'next-translate/useTranslation';
 import { colors } from '@thebadge/ui-library';
-
-const StyledContainer = styled(Box)(({ theme }) => ({
-  marginTop: theme.spacing(6),
-  display: ' flex',
-  columnGap: theme.spacing(3),
-  '& > div': {
-    flex: 1,
-    display: 'flex',
-  },
-  [theme.breakpoints.down(1000)]: {
-    rowGap: theme.spacing(6),
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-}));
+import { BadgeCategoriesInnerContainer } from './addons';
 
 export default function BadgeCategoriesContainer({
   children,
@@ -35,7 +21,8 @@ export default function BadgeCategoriesContainer({
       >
         {t('badgeCategories.title')}
       </Typography>
-      <StyledContainer>{children}</StyledContainer>
+      {/* @ts-ignore */}
+      <BadgeCategoriesInnerContainer>{children}</BadgeCategoriesInnerContainer>
     </Box>
   );
 }

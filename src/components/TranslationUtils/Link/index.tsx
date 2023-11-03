@@ -1,4 +1,4 @@
-import { useLanguageQuery } from 'next-export-i18n';
+import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import React from 'react';
 
@@ -9,7 +9,11 @@ export default function LinkWithTranslation({
   children: React.ReactNode;
   pathname: string;
 }) {
-  const [query] = useLanguageQuery();
+  const { lang } = useTranslation();
 
-  return <Link href={{ pathname: pathname, query: query }}>{children}</Link>;
+  return (
+    <Link locale={lang} href={{ pathname: pathname }}>
+      {children}
+    </Link>
+  );
 }

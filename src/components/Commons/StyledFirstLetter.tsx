@@ -1,3 +1,5 @@
+'use client';
+import React from 'react';
 import { styled, Typography, TypographyProps } from '@mui/material';
 
 type StyledFirstLetterProps = TypographyProps & {
@@ -33,6 +35,7 @@ export default function StyledFirstLetter(props: StyledFirstLetterProps) {
   }
 
   return (
+    // @ts-ignore
     <StyledTypography {...props}>{getElement(props.children)}</StyledTypography>
   );
 }

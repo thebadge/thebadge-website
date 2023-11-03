@@ -1,5 +1,5 @@
 import { ButtonBase, styled } from '@mui/material';
-import { LanguageSwitcher } from 'next-export-i18n';
+import Link from 'next/link';
 
 type LanguageSwitchLinkProps = {
   locale: string;
@@ -41,11 +41,11 @@ const getFlag = (locale: string) => {
 
 const LanguageSwitchLink = ({ locale }: LanguageSwitchLinkProps) => {
   return (
-    <LanguageSwitcher lang={locale}>
+    <Link href="/" locale={locale}>
       <StyledButtonBase style={{ fontSize: 'small' }}>
         {getFlag(locale)}
       </StyledButtonBase>
-    </LanguageSwitcher>
+    </Link>
   );
 };
 

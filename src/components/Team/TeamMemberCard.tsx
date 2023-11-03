@@ -1,8 +1,9 @@
+'use client';
 import { BehanceIcon } from '@/src/components/Commons/SVGs/BehanceIcon';
 import { GitHub, LinkedIn, Mail, Twitter } from '@mui/icons-material';
 import { Box, Stack, styled, Typography, useTheme } from '@mui/material';
 import { BadgePreview } from '@thebadge/ui-library';
-import {ContactType, TeamGroup, TeamMember} from '.';
+import { ContactType, TeamGroup, TeamMember } from '.';
 
 const StyledLink = styled('a')(() => ({
   flexDirection: 'row',
@@ -14,25 +15,31 @@ const StyledLink = styled('a')(() => ({
 }));
 
 const Flap = styled(Box)(() => ({
-  position: "absolute",
-  display: "flex",
+  position: 'absolute',
+  display: 'flex',
   top: 3,
   right: 12,
   width: 80,
   height: 47,
-  borderRadius: "0px 0px 5px 5px"
-}))
+  borderRadius: '0px 0px 5px 5px',
+}));
 
 const Team = styled(Typography)(() => ({
-  margin: "auto",
+  margin: 'auto',
   textAlign: 'center',
-  fontSize: "14px !important",
+  fontSize: '14px !important',
   fontWeight: 700,
-  lineHeight: "22px",
-  color: "#FFF"
-}))
+  lineHeight: '22px',
+  color: '#FFF',
+}));
 
-export default function TeamMemberCard({ user, team }: { user: TeamMember, team?: TeamGroup  }) {
+export default function TeamMemberCard({
+  user,
+  team,
+}: {
+  user: TeamMember;
+  team?: TeamGroup;
+}) {
   const theme = useTheme();
   const { name, role, socials, avatar } = user;
 
@@ -122,15 +129,16 @@ export default function TeamMemberCard({ user, team }: { user: TeamMember, team?
   }
 
   function getFlapColor() {
-      switch (team) {
-          case TeamGroup.ADVISOR:
-              return '#62CBA5'
-          case TeamGroup.CORE_TEAM:
-              return '#3919BB'
-          case TeamGroup.FOUNDER:
-              return '#AF20AF'
-          default: return '#ffffff'
-      }
+    switch (team) {
+      case TeamGroup.ADVISOR:
+        return '#62CBA5';
+      case TeamGroup.CORE_TEAM:
+        return '#3919BB';
+      case TeamGroup.FOUNDER:
+        return '#AF20AF';
+      default:
+        return '#ffffff';
+    }
   }
 
   return (
@@ -139,7 +147,8 @@ export default function TeamMemberCard({ user, team }: { user: TeamMember, team?
         alignItems: 'center',
         justifyContent: 'center',
         width: 'fit-content',
-        position:'relative'
+        position: 'relative',
+        boxSizing: 'border-box',
       }}
     >
       <BadgePreview
@@ -153,10 +162,8 @@ export default function TeamMemberCard({ user, team }: { user: TeamMember, team?
         textContrast="light"
         sx={{ boxSizing: 'border-box' }}
       />
-      <Flap sx={{backgroundColor: getFlapColor()}}>
-        <Team >
-          {user.team}
-        </Team>
+      <Flap sx={{ backgroundColor: getFlapColor() }}>
+        <Team>{user.team}</Team>
       </Flap>
     </Stack>
   );

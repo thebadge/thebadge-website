@@ -1,5 +1,6 @@
-import { Box, Stack, styled, Typography } from '@mui/material';
-import { useTranslation } from 'next-export-i18n';
+import { MiddleComponentContainer } from './addons';
+import { Box, Stack, Typography } from '@mui/material';
+import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import { colors, fonts, SectionLayout, Stepper } from '@thebadge/ui-library';
 import thirdPartyDecoration from '../../assets/thirdparty-decoration.webp';
@@ -59,25 +60,11 @@ function TopComponent() {
   );
 }
 
-const StyledMiddleComponentContainer = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  flex: 1,
-  flexDirection: 'column',
-  placeContent: 'center',
-  textAlign: 'center',
-  rowGap: theme.spacing(3),
-  marginTop: theme.spacing(2),
-  '& > p': {
-    marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2),
-  },
-}));
-
 function MiddleComponent() {
   const { t } = useTranslation();
 
   return (
-    <StyledMiddleComponentContainer>
+    <MiddleComponentContainer>
       <Typography
         color={colors.white}
         variant="h3"
@@ -103,7 +90,7 @@ function MiddleComponent() {
       >
         {t('badgeCategories.third-party.example')}
       </Typography>
-    </StyledMiddleComponentContainer>
+    </MiddleComponentContainer>
   );
 }
 

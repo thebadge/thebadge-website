@@ -1,4 +1,6 @@
+'use client';
 import { Box, keyframes } from '@mui/material';
+import useTranslation from 'next-translate/useTranslation';
 import Image, { StaticImageData } from 'next/image';
 import { MultiBadgePreview } from '@thebadge/ui-library';
 import enDiplomaCert from '../../assets/badges/en/diploma-cert.webp';
@@ -10,7 +12,6 @@ import esHoweyTest from '../../assets/badges/es/howey-test.webp';
 import deDiplomaCert from '../../assets/badges/de/diploma-cert.webp';
 import deIsoCert from '../../assets/badges/de/iso-cert.webp';
 import deHoweyTest from '../../assets/badges/de/howey-test.webp';
-import { useSelectedLanguage } from 'next-export-i18n';
 
 const BADGES: { [key: string]: Array<StaticImageData> } = {
   en: [enDiplomaCert, enIsoCert, enHoweyTest],
@@ -28,7 +29,7 @@ const glow = keyframes`
 `;
 
 export const BadgesPreview = () => {
-  const { lang } = useSelectedLanguage();
+  const { lang } = useTranslation();
 
   return (
     <MultiBadgePreview

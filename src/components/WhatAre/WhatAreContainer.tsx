@@ -1,3 +1,4 @@
+'use client';
 import { Box, styled } from '@mui/material';
 
 const WhatAreContainer = styled(Box)(({ theme }) => ({

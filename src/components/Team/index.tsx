@@ -1,10 +1,11 @@
+'use client';
 import { CustomDivider } from '@/src/components/Commons/Divider';
 import TBSwiper from '@/src/components/Commons/TBSwiper';
 import TeamMemberCard from '@/src/components/Team/TeamMemberCard';
 import TeamMemberCardDivider from '@/src/components/Team/TeamMemberCardDivider';
-import {Box, Typography, styled } from '@mui/material';
+import { Box, Typography, styled } from '@mui/material';
 import { colors } from '@thebadge/ui-library';
-import { useTranslation } from 'next-export-i18n';
+import useTranslation from 'next-translate/useTranslation';
 
 const BoxTeam = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(12),
@@ -31,7 +32,7 @@ export type TeamMember = {
 export enum TeamGroup {
   FOUNDER = 'Founder',
   CORE_TEAM = 'Team',
-  ADVISOR = 'Advisor'
+  ADVISOR = 'Advisor',
 }
 
 const TEAM_MEMBERS: TeamMember[] = [
@@ -206,7 +207,13 @@ const Team = () => {
               return (
                 <TeamMemberCardDivider key={member.team} type={member?.team} />
               );
-            return <TeamMemberCard key={member.name} user={member} team={member?.team} />;
+            return (
+              <TeamMemberCard
+                key={member.name}
+                user={member}
+                team={member?.team}
+              />
+            );
           })}
         />
       </Box>

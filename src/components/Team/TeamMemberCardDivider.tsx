@@ -1,11 +1,12 @@
-import {LogoTheBadgeWithText} from '@thebadge/ui-library';
+'use client';
+import { LogoTheBadgeWithText } from '@thebadge/ui-library';
 import advisorDecoration from '/public/assets/advisor-background.png';
 import coreTeamDecoration from '/public/assets/core-team-background.png';
 import founderDecoration from '/public/assets/founder-background.png';
 
-import {Divider, Stack, styled, Typography} from '@mui/material';
+import { Divider, Stack, styled, Typography } from '@mui/material';
 import Image from 'next/image';
-import {TeamGroup} from "@/src/components/Team/index";
+import { TeamGroup } from '@/src/components/Team/index';
 
 const StyledTypography = styled(Typography)(() => ({
   textShadow: '0 0 6px #ffffff',

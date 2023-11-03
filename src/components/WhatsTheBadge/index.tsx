@@ -1,5 +1,5 @@
-import { Box, Stack, styled, Typography } from '@mui/material';
-import { useTranslation } from 'next-export-i18n';
+import { Box, Stack, Typography } from '@mui/material';
+import useTranslation from 'next-translate/useTranslation';
 import {
   BoxGradient,
   colors,
@@ -9,34 +9,7 @@ import {
   IconDecentralized,
   IconEvidence,
 } from '@thebadge/ui-library';
-
-const StyledStepBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'space-evenly',
-  marginTop: theme.spacing(4),
-  gap: theme.spacing(3),
-  [theme.breakpoints.down('md')]: {
-    flexWrap: 'wrap',
-  },
-}));
-
-const StyledStepStack = styled(Stack)(({ theme }) => ({
-  alignItems: 'center',
-  gap: theme.spacing(1),
-  [theme.breakpoints.down('md')]: {
-    width: '45%',
-  },
-}));
-
-const StyledWhyStack = styled(Stack)(({ theme }) => ({
-  padding: theme.spacing(6),
-  rowGap: theme.spacing(2),
-  [theme.breakpoints.up('xl')]: {
-    paddingLeft: '10%',
-    paddingRight: '10%',
-  },
-  justifyContent: 'center',
-}));
+import { StyledStepBox, StyledStepStack, StyledWhyStack } from './addons';
 
 const STEPS = [
   {

@@ -1,8 +1,7 @@
+'use client';
+import React, { useEffect, useState } from 'react';
 import { Box, CardMedia } from '@mui/material';
 import { VIDEO_URL } from '@/src/constants';
-import React, { useEffect, useRef, useState } from 'react';
-import { BackgroundGradient } from '@/src/components/Layout/BackgroundGradient';
-import Footer from '@/src/components/Layout/Footer';
 
 export default function Video() {
   const [domLoaded, setDomLoaded] = useState(false);
@@ -36,13 +35,3 @@ export default function Video() {
     </>
   );
 }
-
-Video.getLayout = (children: React.ReactElement) => {
-  return (
-    <div>
-      <BackgroundGradient />
-      {children}
-      <Footer />
-    </div>
-  );
-};

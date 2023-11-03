@@ -1,3 +1,4 @@
+'use client';
 import React, { RefObject, useContext, useRef } from 'react';
 
 type SectionReferencesContextType = {
@@ -47,4 +48,4 @@ export default function SectionReferencesProvider({
   );
 }
 
-export const useSetionReferences = () => useContext(SectionReferencesContext);
+export const useSectionReferences = () => useContext(SectionReferencesContext);

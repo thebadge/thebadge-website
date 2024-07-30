@@ -8,7 +8,7 @@ const Features = () => {
 
   return (
     <>
-      <section id="#benefits" className="container relative">
+      <section id="benefits" className="container relative">
         <div className="flex flex-col gap-6 py-10">
           <h2 className="text-5xl mb:text-6xl lg:text-7xl">User Benefits</h2>
 
